@@ -1,149 +1,161 @@
 /* General Reset */
-body, ul, li, h5 {
+* {
   margin: 0;
   padding: 0;
-  list-style: none;
-  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
 }
 
-/* Main Section */
-.main {
-  width: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.5) 50%), url(./Resources/Sunrise-Image.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 109vh;
+body {
+  background-color: #f4f4f4;
+  color: #333;
 }
 
-/* Navbar Section */
+/* Navbar */
 .navbar {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  color: white;
-  position: fixed;
-}
-
-/* Logo */
-.logo h5 {
-  font-size: 20px;
-  color: goldenrod;
-
-}
-
-/* Menu */
-.menu {
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  background: #222;
+  color: white;
+  padding: 15px 30px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
 
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: goldenrod;
 }
 
 .menu ul {
-  float: left;
+  list-style: none;
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .menu ul li {
-  margin-left: 62px;
-  margin-top: 10px;
-  font-size: 14px;
+  margin: 0 15px;
 }
 
 .menu ul li a {
+  color: white;
   text-decoration: none;
-  color: aliceblue;
-  font-family: Arial;
   font-weight: bold;
-  transition: 0.4s ease-in-out;
+  transition: color 0.3s ease;
 }
 
 .menu ul li a:hover {
   color: #ffa500;
 }
 
-/* Search Section */
+/* Search */
 .search {
-  width: 330px;
-  float: left;
-  margin-left: 150px;
   display: flex;
 }
 
 .srch {
-  font-family: 'Times New Roman';
-  width: 200px;
-  height: 40px;
-  background: transparent;
+  padding: 8px;
   border: 1px solid #ffa500;
-  margin-top: 13px;
-  color: aliceblue;
- 
-  font-size: 16px;
-  float: left;
-  padding: 10px;
+  background: transparent;
+  color: white;
+  width: 180px;
 }
 
-.srch:focus {
-  outline: none;
+.srch::placeholder {
+  color: white;
 }
 
 .btn {
-  width: 100%;
-  height: 40px;
+  padding: 8px 15px;
   background: #ffa500;
-  border: 2px solid #ffa500;
-  margin-top: 13px;
-  color: aliceblue;
-  font-size: 15px;
-  border-bottom-right-radius: 5px;
-  cursor: pointer;
-}
-
-.btn:focus {
-  outline: none;
-}
-
-/* Responsive Menu */
-.menu-toggle {
-  display: none;
-  background: none;
   border: none;
   color: white;
-  font-size: 1.5rem;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s;
 }
 
-.menu ul li {
-  padding: 10px;
-  text-align: center;
+.btn:hover {
+  background: #ff8700;
 }
 
-.menu ul li a {
-  font-size: 1rem;
-}
-
-.menu-toggle {
-  display: block;
-}
-
-.menu.active ul {
+/* Hero Section */
+.hero {
+  background: url('./Resources/Sunrise-Image.jpg') center/cover no-repeat;
+  height: 100vh;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding: 20px;
+  margin-top: 60px; /* Adjust for fixed navbar */
 }
 
-/* Responsive Styles */
+.hero .content {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.hero h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.hero .btn {
+  padding: 12px 20px;
+  font-size: 18px;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
   .menu ul {
-    display: none;
     flex-direction: column;
-    background-color: #333;
     position: absolute;
     top: 60px;
-    right: 20px;
+    right: 0;
+    background: #333;
     width: 200px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    display: none;
+    padding: 10px;
+  }
+
+  .menu ul li {
+    margin: 10px 0;
+    text-align: center;
+  }
+
+  .menu ul li a {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .menu.active ul {
+    display: flex;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 16px;
   }
 }
